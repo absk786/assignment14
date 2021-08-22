@@ -4,14 +4,21 @@ const UsersSchema = new Schema ({
     username: {
         type: String,
         required: true,
-        trimmed: true,
+        trim: true,
         unique:true
     },
     email:{
         type: String,
         required:true,
         unique: true,
-        //validate email
+        email: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            unique: true,
+            required: 'Email address is required',
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+        }
     },
     thoughts:[
         {
@@ -34,10 +41,10 @@ const UsersSchema = new Schema ({
 }
 )
 
+
 UsersSchema.virtual('friendCount').get(function () {
-    return this.friends.reduce(
-        (total) => total 
-    )
+    console.log(this.friends.length)
+    return this.friends.length
 })
 
 const Users = model('Users', UsersSchema)
