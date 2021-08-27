@@ -49,9 +49,35 @@ const userController = {
         })
     },
 
-    createFriend({body},res) {
-        Users.updateOne({_id:mongoose.Types.ObjectId(params.userId)},{$push:{friends:body}})
-        .then(dbUser => res.json(dbUser))
+        // ADD friend to friend's list
+        createFriend({params}, res) {
+            Users.findOneAndUpdate(
+                { _id: mongoose.Types.ObjectId(params.id)},
+                { $push: {friends:params.friendId } },
+                { new: true, runValidators: true }
+            )
+            .populate({
+                path: 'friends',
+                select: '-__v'
+            })
+            .select('-__v')
+            .then(dbUserData => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No user with this id was found' });
+                    return;
+                }
+                res.json(dbUserData);
+            })
+            .catch(err => res.json(err));
+        }, 
+
+    //need to fix thisss
+    deleteFriend({params},res) {
+        Users.findOneAndUpdate(
+            { _id: mongoose.Types.ObjectId(params.id)},
+            { $pull: {friends:params.friendId } }
+        )
+    .then(dbUser => res.json(dbUser))
         .catch(err => {
             console.log(err)
             res.status(400).json(err)

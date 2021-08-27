@@ -11,9 +11,10 @@ router.route('/:id')
 .get(userController.getUserById)
 .delete(userController.deleteUser)
 
-router.route('/:userId/friends')
-.post(userController.createFriend)
+// Set up PUT, DELETE for friends at /api/users/:userId/friends/:friendId
+router.route('/:id/friends/:friendId')
+    .put(userController.createFriend)
+    .delete(userController.deleteFriend)
 
-router.route('/:userId/friends/:friendsId')
 
 module.exports = router;
