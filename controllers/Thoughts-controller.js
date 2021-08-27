@@ -62,7 +62,6 @@ const thoughtControler = {
     },
   
     deleteReaction({params},res) {
-
         console.log('thoughId', params.thoughtId, 'reactionID', params.reactionId)
         Thought.updateOne({_id:mongoose.Types.ObjectId(params.thoughtId)}, {$pull:{ "reactions": { _id: mongoose.Types.ObjectId(params.reactionId) }}})
         .then(dbThoughts => res.json(dbThoughts))

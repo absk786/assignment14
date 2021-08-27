@@ -6,7 +6,7 @@ const ReactionSchema = new Schema ({
     reactionBody:{
         type:String,
         requried:true,
-        //max 280 chars
+        maxLength:280
     },
     username:{
         type:String,
@@ -31,7 +31,7 @@ const ThoughtSchema = new Schema ({
     thoughtText: {
         type:String,
         required:true,
-        //length between 1-280
+        maxLength: 280
     },
     createdAt:{
         type: Date,
@@ -53,9 +53,7 @@ const ThoughtSchema = new Schema ({
 )
 
 
-
 function dateFormat (createdAt) {
-
     console.log(createdAt)
   return moment(createdAt).format('MM/DD/YYYY')
 }

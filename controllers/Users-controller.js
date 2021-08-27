@@ -47,7 +47,16 @@ const userController = {
             console.log(err)
             res.status(400).json(err)
         })
-    }
+    },
+
+    createFriend({body},res) {
+        Users.updateOne({_id:mongoose.Types.ObjectId(params.userId)},{$push:{friends:body}})
+        .then(dbUser => res.json(dbUser))
+        .catch(err => {
+            console.log(err)
+            res.status(400).json(err)
+        })
+    },
 }
 
 module.exports = userController;

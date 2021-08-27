@@ -11,5 +11,9 @@ router.route('/:id')
 .get(userController.getUserById)
 .delete(userController.deleteUser)
 
+router.route('/:userId/friends')
+.post(userController.createFriend)
+
+router.route('/:userId/friends/:friendsId')
 
 module.exports = router;
