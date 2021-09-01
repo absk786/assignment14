@@ -8,7 +8,7 @@
 ## [GitHub](https://github.com/absk786)
 ## [Users](https://drive.google.com/file/d/1wS9H3NnATdf3lQqj6Wngq_tj22FxVu9i/view)
 ## [Friends](https://drive.google.com/file/d/1wS9H3NnATdf3lQqj6Wngq_tj22FxVu9i/view)
-## [Thoughts](https://drive.google.com/file/d1bmX8ae1Keoa8KAanhC4vvT-16t0gd8Ai/view)
+## [Thoughts](https://drive.google.com/file/d/1mWorrq1-if0ZV9m2v5wyVpX_fkVqQXsw/view)
 ## [Reactions](https://drive.google.com/file/d/1mWorrq1-if0ZV9m2v5wyVpX_fkVqQXsw/view)
 
 ## Table of Contents:
